@@ -42,10 +42,10 @@ public class PracticeForm_Tests {
         $("#userNumber").setValue(userNumber);
         $("#dateOfBirthInput").click();
         $(".react-datepicker__month-select").click();
-        $(".react-datepicker__month-select").selectOption("March");
+        $(".react-datepicker__month-select").selectOption("April");
         $(".react-datepicker__year-select").click();
-        $(".react-datepicker__year-select").selectOption("2018");
-        $(".react-datepicker__day--020").click();
+        $(".react-datepicker__year-select").selectOption("1994");
+        $(".react-datepicker__day--026").click();
         $(".subjects-auto-complete__value-container").click();
         $("#subjectsInput").sendKeys("English");
         $("#subjectsInput").pressEnter();
@@ -60,7 +60,7 @@ public class PracticeForm_Tests {
 
 
         $(".modal-content").shouldHave(text(firstName), text(lastName),  text(userEmail),
-                text(gender), text(userNumber), text(userNumber), text(hobbies), text("Screenshot_practice_form.png"),
+                text(gender), text(userNumber), text(userNumber), text("26 April,1994"), text(hobbies), text("Screenshot_practice_form.png"),
                 text(currentAddress), text(state + " " + City));
     }
 }
