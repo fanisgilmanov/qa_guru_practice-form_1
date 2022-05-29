@@ -11,7 +11,7 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
 
-public class PracticeForm_Tests {
+public class PracticeFormTests {
     String firstName = "Fanis";
     String lastName = "Gilmanov";
     String userEmail = "test@mail.ru";
@@ -20,7 +20,7 @@ public class PracticeForm_Tests {
     String userNumber = "8987937283";
     String currentAddress = "Russia, Ufa, Ultra";
     String state = "NCR";
-    String City = "Delhi";
+    String city = "Delhi";
     File file = new File("src/test/java/resources/Screenshot_practice_form.png");
 
     @BeforeAll
@@ -53,7 +53,7 @@ public class PracticeForm_Tests {
         $("#uploadPicture").uploadFile(file);
         $("#currentAddress").setValue(currentAddress);
         $("#react-select-3-input").setValue(state).pressEnter();
-        $("#react-select-4-input").setValue(City).pressEnter();
+        $("#react-select-4-input").setValue(city).pressEnter();
         $("#submit").click();
 
 
@@ -61,6 +61,6 @@ public class PracticeForm_Tests {
 
         $(".modal-content").shouldHave(text(firstName), text(lastName),  text(userEmail),
                 text(gender), text(userNumber), text(userNumber), text("26 April,1994"), text(hobbies), text("Screenshot_practice_form.png"),
-                text(currentAddress), text(state + " " + City));
+                text(currentAddress), text(state + " " + city));
     }
 }
