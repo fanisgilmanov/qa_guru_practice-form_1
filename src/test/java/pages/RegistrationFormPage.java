@@ -20,6 +20,8 @@ public class RegistrationFormPage {
             userEmail = $("#userEmail"),
             gender = $("#genterWrapper"),
             mobileNumber = $("#userNumber"),
+            dateOfBirthInput = $("#dateOfBirthInput"),
+            subjectAutoCompleteField = $(".subjects-auto-complete__value-container"),
             subjectsInput = $("#subjectsInput"),
             hobbiesInput = $("#hobbiesWrapper"),
             uploadFileInput = $("#uploadPicture"),
@@ -63,14 +65,14 @@ public class RegistrationFormPage {
     }
 
     public RegistrationFormPage setDateOfBirth(String date) {
-        $("#dateOfBirthInput").click();
+        $(dateOfBirthInput).click();
         calenderComponent.setDate(date);
 
         return this;
     }
 
     public RegistrationFormPage setSubject(String value) {
-        $(".subjects-auto-complete__value-container").click();
+        $(subjectAutoCompleteField).click();
         subjectsInput.sendKeys(value);
         subjectsInput.pressEnter();
 
