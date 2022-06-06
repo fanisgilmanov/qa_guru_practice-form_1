@@ -23,7 +23,7 @@ public  class TestData  {
     String stateValue = getRandomState(); // "NCR";
     String cityInput = "#react-select-4-input";
     String cityValue = getRandomCity(stateValue); //"Delhi";
-    File file = new File("src/test/java/resources/Screenshot_practice_form.png");
+    File file = new File("src/test/resources/Screenshot_practice_form.png");
 
     String delimeter = " ";
     String[] subStrDate = dateBirthday.split(delimeter);
