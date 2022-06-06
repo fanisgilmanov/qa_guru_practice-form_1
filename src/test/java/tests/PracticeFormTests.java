@@ -1,66 +1,45 @@
 package tests;
 
-import com.codeborne.selenide.Configuration;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-
-import java.io.File;
-
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
 
-public class PracticeFormTests {
-    String firstName = "Fanis";
-    String lastName = "Gilmanov";
-    String userEmail = "test@mail.ru";
-    String gender = "Male";
-    String hobbies = "Sports";
-    String userNumber = "8987937283";
-    String currentAddress = "Russia, Ufa, Ultra";
-    String state = "NCR";
-    String city = "Delhi";
-    File file = new File("src/test/java/resources/Screenshot_practice_form.png");
 
-    @BeforeAll
-    static void beforeUrl() {
-        Configuration.baseUrl = "https://demoqa.com";
-        Configuration.browserSize = "1920x1080";
-    }
+public class PracticeFormTests  extends BaseTest{
+
 
     @Test
     void successfulTest() {
-        open("/automation-practice-form");
-        executeJavaScript("$('footer').remove()");
-        executeJavaScript("$('#fixedban').remove()");
 
-        $("#firstName").setValue(firstName);
-        $("#lastName").setValue(lastName);
-        $("#userEmail").setValue(userEmail);
-        $("#genterWrapper").$(byText(gender)).click();
-        $("#userNumber").setValue(userNumber);
-        $("#dateOfBirthInput").click();
-        $(".react-datepicker__month-select").click();
-        $(".react-datepicker__month-select").selectOption("April");
-        $(".react-datepicker__year-select").click();
-        $(".react-datepicker__year-select").selectOption("1994");
-        $(".react-datepicker__day--026").click();
-        $(".subjects-auto-complete__value-container").click();
-        $("#subjectsInput").sendKeys("English");
-        $("#subjectsInput").pressEnter();
-        $("#hobbiesWrapper").$(byText(hobbies)).click();
-        $("#uploadPicture").uploadFile(file);
-        $("#currentAddress").setValue(currentAddress);
-        $("#react-select-3-input").setValue(state).pressEnter();
-        $("#react-select-4-input").setValue(city).pressEnter();
+        registrationFormPage.openPage()
+            .setFirstName(testData.firstName)
+            .setLastName(testData.lastName)
+            .setEmail(testData.userEmail)
+            .setGender(testData.gender)
+            .setMobileNumber(testData.userNumber)
+            .setDateOfBirth(testData.dateBirthday)
+            .setSubject(testData.subject)
+            .setHobbies(testData.hobbies)
+            .uploadFiles(testData.file)
+            .setCurrentAddress(testData.currentAddress)
+            .setSelect(testData.stateInput, testData.stateValue)
+            .setSelect(testData.cityInput, testData.cityValue);
         $("#submit").click();
 
 
 
 
-        $(".modal-content").shouldHave(text(firstName), text(lastName),  text(userEmail),
-                text(gender), text(userNumber), text(userNumber), text("26 April,1994"), text(hobbies), text("Screenshot_practice_form.png"),
-                text(currentAddress), text(state + " " + city));
+         registrationFormPage.checkResult("Student Name", testData.firstName)
+            .checkResult("Student Name", testData.lastName)
+            .checkResult("Student Email", testData.userEmail)
+            .checkResult("Gender", testData.gender)
+            .checkResult("Mobile", testData.userNumber)
+            .checkResult("Date of Birth", testData.checkDateBirthday)
+            .checkResult("Subjects", testData.subject)
+            .checkResult("Hobbies", testData.hobbies)
+            .checkResult("Picture", testData.file.getName())
+            .checkResult("Address", testData.currentAddress)
+            .checkResult("State and City", testData.stateValue + " " + testData.cityValue);
+
     }
 }
