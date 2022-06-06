@@ -23,8 +23,9 @@ public class PracticeFormTests  extends BaseTest{
             .uploadFiles(testData.file)
             .setCurrentAddress(testData.currentAddress)
             .setSelect(testData.stateInput, testData.stateValue)
-            .setSelect(testData.cityInput, testData.cityValue);
-        $("#submit").click();
+            .setSelect(testData.cityInput, testData.cityValue)
+            .clickSubmit();
+
 
 
 

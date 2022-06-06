@@ -26,8 +26,7 @@ public class RegistrationFormPage {
             hobbiesInput = $("#hobbiesWrapper"),
             uploadFileInput = $("#uploadPicture"),
             currentAddress = $("#currentAddress"),
-            stateInput = $("#react-select-3-input"),
-            cityInput = $("#react-select-4-input");
+            submitValue = $("#submit");
 
 
     public RegistrationFormPage openPage() {
@@ -100,6 +99,12 @@ public class RegistrationFormPage {
 
     public RegistrationFormPage setSelect(String input, String value){
         stateSelect.setSelect(input, value);
+
+        return this;
+    }
+
+    public RegistrationFormPage clickSubmit(){
+        submitValue.click();
 
         return this;
     }
