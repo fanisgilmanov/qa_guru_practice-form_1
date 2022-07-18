@@ -73,8 +73,5 @@ public class RandomUtils {
             randomIndexCity = generatorState.nextInt(cityArrayRajasthan.length);
             return cityArrayRajasthan[randomIndexCity];
         }
-
-
-
     }
 }
