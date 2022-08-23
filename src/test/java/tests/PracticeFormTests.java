@@ -1,6 +1,7 @@
 package tests;
 
 import com.codeborne.selenide.Selenide;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
@@ -10,6 +11,7 @@ public class PracticeFormTests  extends BaseTest{
 
 
     @Test
+    @Tag("test1")
     void successfulTest() {
         step("Открываем главную страницу", () -> {
             registrationFormPage.openPage();

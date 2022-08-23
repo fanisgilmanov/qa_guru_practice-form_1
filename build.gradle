@@ -56,3 +56,10 @@ task prop_test(type: Test) {
         includeTags "test1"
     }
 }
+
+
+task owner_test(type: Test) {
+    useJUnitPlatform {
+        includeTags "owner"
+    }
+}
