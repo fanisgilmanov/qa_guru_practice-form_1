@@ -12,8 +12,10 @@ public class OwnerTests {
     void credentialTest(){
         String login = config.login();
         String password = config.password();
+        String remoteUrlSelenoid = config.remoteUrlSelenoid();
 
         System.out.println("Login " + login);
         System.out.println("Password " + password);
+        System.out.println("remoteUrlSelenoid " + remoteUrlSelenoid);
     }
 }

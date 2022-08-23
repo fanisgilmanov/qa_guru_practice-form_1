@@ -30,9 +30,8 @@ public class BaseTest {
         Configuration.browser = System.getProperty("browser", "chrome");
         Configuration.browserSize = System.getProperty("browserSize","1920x1080");
         Configuration.browserVersion = System.getProperty("browserVersion", "100");
-        String remoteUrlSelenoid = System.getProperty("remoteDriverUrl","selenoid.autotests.cloud/wd/hub");
         Configuration.remote = format("https://%s:%s@%s",
-                config.login(), config.password(), remoteUrlSelenoid);
+                config.login(), config.password(), config.remoteUrlSelenoid());
 
     }
 
