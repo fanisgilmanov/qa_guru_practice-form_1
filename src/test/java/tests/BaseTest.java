@@ -23,7 +23,8 @@ public class BaseTest {
         Configuration.browserCapabilities = capabilities;
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.browserSize = "1920x1080";
-        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
+        Configuration.remote = "https://selenoid.vfautotests.ru/";
+        //Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
     }
 
 
