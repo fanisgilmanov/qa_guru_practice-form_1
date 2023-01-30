@@ -37,7 +37,7 @@ tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
 }
 
-tasks.named('wrapper') {
+/*tasks.named('wrapper') {
     distributionType = Wrapper.DistributionType.ALL
     gradleVersion = '7.4'
-}
+}*/
